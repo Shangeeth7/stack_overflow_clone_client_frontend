@@ -17,7 +17,7 @@ function AllQuestions({ questions }) {
         <div className="all-questions-left">
           <div className="all-options">
             <div className="all-option">
-              <p>0</p>
+              <p>1</p>
               <span>votes</span>
             </div>
             <div className="all-option">
@@ -25,7 +25,7 @@ function AllQuestions({ questions }) {
               <span>Answers</span>
             </div>
             <div className="all-option">
-              <small>0 views</small>
+              <small>6 views</small>
             </div>
           </div>
         </div>

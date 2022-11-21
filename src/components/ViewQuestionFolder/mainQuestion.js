@@ -112,7 +112,7 @@ function MainQuestion() {
                 Active<span>today</span>
               </p>
               <p>
-                Viewed<span>43times</span>
+                Viewed<span>7 times</span>
               </p>
             </div>
           </div>
