@@ -29,7 +29,7 @@ function MainQuestion() {
   useEffect(() => {
     async function getQuestionDetails() {
       await axios
-        .get(`/api/question/${id}`)
+        .get(`https://stack-overrflow.herokuapp.com/api/question/${id}`)
         .then((res) => {
           setQuestionData(res.data[0]);
         })
@@ -42,7 +42,7 @@ function MainQuestion() {
 
   async function getUpdatedAnswer() {
     await axios
-      .get(`/api/question/${id}`)
+      .get(`https://stack-overrflow.herokuapp.com/api/question/${id}`)
       .then((res) => {
         setQuestionData(res.data[0]);
       })
@@ -64,7 +64,7 @@ function MainQuestion() {
         },
       };
       await axios
-        .post("/api/answer", body, config)
+        .post("https://stack-overrflow.herokuapp.com/api/answer", body, config)
         .then(() => {
           alert("Answer added successfully");
           setAnswer("");
@@ -80,12 +80,14 @@ function MainQuestion() {
         comment: comment,
         user: user,
       };
-      await axios.post(`/api/comment/${id}`, body).then((res) => {
-        setComment("");
-        setShow(false);
-        getUpdatedAnswer();
-        // console.log(res.data);
-      });
+      await axios
+        .post(`https://stack-overrflow.herokuapp.com/api/comment/${id}`, body)
+        .then((res) => {
+          setComment("");
+          setShow(false);
+          getUpdatedAnswer();
+          // console.log(res.data);
+        });
     }
 
     // setShow(true)

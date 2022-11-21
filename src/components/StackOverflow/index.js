@@ -11,7 +11,7 @@ function Index() {
   React.useEffect(() => {
     async function getQuestion() {
       await axios
-        .get("/api/question")
+        .get("https://stack-overrflow.herokuapp.com/api/question")
         .then((res) => {
           setQuestions(res.data.reverse());
         })

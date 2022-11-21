@@ -37,7 +37,7 @@ function Question() {
         user: user,
       };
       await axios
-        .post("/api/question", bodyJSON)
+        .post("https://stack-overrflow.herokuapp.com/api/question", bodyJSON)
         .then((res) => {
           // console.log(res.data);
           alert("Question added successfully");
