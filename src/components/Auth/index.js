@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 import { auth, provider } from "../../firebase";
+import SecondHeader2 from "../header/header2";
 
 function Index() {
   const navigate = useNavigate();
@@ -80,111 +81,114 @@ function Index() {
   };
 
   return (
-    <div className="auth">
-      <div className="auth-container">
-        <p>Add another way to log in using any of the following services. </p>
-        <div className="sign-options">
-          <div onClick={handleSignInGoogle} className="single-option">
-            <img
-              alt="google"
-              src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-            />
-            <p>{loading ? "Signing in..." : "Login with Google"}</p>
+    <div>
+      <SecondHeader2 />
+      <div className="auth">
+        <div className="auth-container">
+          <p>Add another way to log in using any of the following services. </p>
+          <div className="sign-options">
+            <div onClick={handleSignInGoogle} className="single-option">
+              <img
+                alt="google"
+                src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+              />
+              <p>{loading ? "Signing in..." : "Login with Google"}</p>
+            </div>
           </div>
-        </div>
-        or
-        <div className="auth-login">
-          <div className="auth-login-container">
-            {register ? (
-              <>
-                <div className="input-field">
-                  <p>Username</p>
-                  <input
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    type="text"
-                  />
-                </div>
-                <div className="input-field">
-                  <p>Email</p>
-                  <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="text"
-                  />
-                </div>
-                <div className="input-field">
-                  <p>Password</p>
-                  <input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    type="password"
-                  />
-                </div>
-                <button
-                  onClick={handleRegister}
-                  disabled={loading}
-                  style={{
-                    marginTop: "10px",
-                  }}
-                >
-                  {loading ? "signing up..." : "Register"}
-                </button>
-              </>
-            ) : (
-              <>
-                <div className="input-field">
-                  <p>Email</p>
-                  <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="email"
-                  />
-                </div>
-                <div className="input-field">
-                  <p>Password</p>
-                  <input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    type="password"
-                  />
-                </div>
-                <button
-                  onClick={handleSignIn}
-                  disabled={loading}
-                  style={{
-                    marginTop: "10px",
-                  }}
-                >
-                  {loading ? "Logging in..." : "Login"}
-                </button>
-              </>
-            )}
+          or
+          <div className="auth-login">
+            <div className="auth-login-container">
+              {register ? (
+                <>
+                  <div className="input-field">
+                    <p>Username</p>
+                    <input
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      type="text"
+                    />
+                  </div>
+                  <div className="input-field">
+                    <p>Email</p>
+                    <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="text"
+                    />
+                  </div>
+                  <div className="input-field">
+                    <p>Password</p>
+                    <input
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                    />
+                  </div>
+                  <button
+                    onClick={handleRegister}
+                    disabled={loading}
+                    style={{
+                      marginTop: "10px",
+                    }}
+                  >
+                    {loading ? "signing up..." : "Register"}
+                  </button>
+                </>
+              ) : (
+                <>
+                  <div className="input-field">
+                    <p>Email</p>
+                    <input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                    />
+                  </div>
+                  <div className="input-field">
+                    <p>Password</p>
+                    <input
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                    />
+                  </div>
+                  <button
+                    onClick={handleSignIn}
+                    disabled={loading}
+                    style={{
+                      marginTop: "10px",
+                    }}
+                  >
+                    {loading ? "Logging in..." : "Login"}
+                  </button>
+                </>
+              )}
 
+              <p
+                onClick={() => setRegister(!register)}
+                style={{
+                  marginTop: "10px",
+                  textAlign: "center",
+                  color: "#0095ff",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+              >
+                {register ? "Login" : "Register"} ?
+              </p>
+            </div>
+          </div>
+          {error !== "" && (
             <p
-              onClick={() => setRegister(!register)}
               style={{
-                marginTop: "10px",
-                textAlign: "center",
-                color: "#0095ff",
-                textDecoration: "underline",
-                cursor: "pointer",
+                color: "red",
+                fontSize: "14px",
               }}
             >
-              {register ? "Login" : "Register"} ?
+              {error}
             </p>
-          </div>
+          )}
         </div>
-        {error !== "" && (
-          <p
-            style={{
-              color: "red",
-              fontSize: "14px",
-            }}
-          >
-            {error}
-          </p>
-        )}
       </div>
     </div>
   );

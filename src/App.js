@@ -59,7 +59,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
         <Routes>
           <Route exact path="/login-register" element={<Auth />} />
 

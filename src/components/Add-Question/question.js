@@ -9,6 +9,7 @@ import { TagsInput } from "react-tag-input-component";
 
 import axios from "axios";
 import { selectUser } from "../../features/userSlice";
+import Header from "../header/header";
 
 function Question() {
   const user = useSelector(selectUser);
@@ -50,6 +51,7 @@ function Question() {
 
   return (
     <div>
+      <Header />
       <div className="add-question">
         <div className="add-question-container">
           <div className="head-title">

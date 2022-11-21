@@ -1,7 +1,8 @@
 import React from "react";
 import "./css/allQuestions.css";
 import { Avatar } from "@mui/material";
-import ReactHtmlParser from "react-html-parser";
+
+import parse from "html-react-parser";
 
 function AllQuestions({ questions }) {
   let tags;
@@ -35,7 +36,7 @@ function AllQuestions({ questions }) {
               maxWidth: "90%",
             }}
           >
-            <div>{ReactHtmlParser(truncate(questions?.body, 600))}</div>
+            <div>{parse(truncate(questions?.body, 600))}</div>
           </div>
           <div
             style={{

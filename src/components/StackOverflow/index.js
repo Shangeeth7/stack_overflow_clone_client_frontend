@@ -3,6 +3,7 @@ import "./css/index.css";
 import Main from "./main";
 import SideBar from "./sideBar";
 import axios from "axios";
+import Header from "../header/header";
 
 function Index() {
   const [questions, setQuestions] = React.useState([]);
@@ -21,10 +22,13 @@ function Index() {
     getQuestion();
   }, []);
   return (
-    <div className="stack-index">
-      <div className="stack-index-content">
-        <SideBar />
-        <Main questions={questions} />
+    <div>
+      <Header />
+      <div className="stack-index">
+        <div className="stack-index-content">
+          <SideBar />
+          <Main questions={questions} />
+        </div>
       </div>
     </div>
   );
