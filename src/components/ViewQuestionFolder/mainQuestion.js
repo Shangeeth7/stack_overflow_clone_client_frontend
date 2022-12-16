@@ -29,7 +29,7 @@ function MainQuestion() {
   useEffect(() => {
     async function getQuestionDetails() {
       await axios
-        .get(`https://stack-overrflow.herokuapp.com/api/question/${id}`)
+        .get(`https://stackoverflow-5397.onrender.com/api/question/${id}`)
         .then((res) => {
           setQuestionData(res.data[0]);
         })
@@ -42,7 +42,7 @@ function MainQuestion() {
 
   async function getUpdatedAnswer() {
     await axios
-      .get(`https://stack-overrflow.herokuapp.com/api/question/${id}`)
+      .get(`https://stackoverflow-5397.onrender.com/api/question/${id}`)
       .then((res) => {
         setQuestionData(res.data[0]);
       })
@@ -64,7 +64,11 @@ function MainQuestion() {
         },
       };
       await axios
-        .post("https://stack-overrflow.herokuapp.com/api/answer", body, config)
+        .post(
+          "https://stackoverflow-5397.onrender.com/api/answer",
+          body,
+          config
+        )
         .then(() => {
           alert("Answer added successfully");
           setAnswer("");
@@ -81,7 +85,7 @@ function MainQuestion() {
         user: user,
       };
       await axios
-        .post(`https://stack-overrflow.herokuapp.com/api/comment/${id}`, body)
+        .post(`https://stackoverflow-5397.onrender.com/api/comment/${id}`, body)
         .then((res) => {
           setComment("");
           setShow(false);
